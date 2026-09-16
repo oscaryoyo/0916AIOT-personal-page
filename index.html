@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>林冠佑 | 資訊工程 - Personal Page</title>
+    <title>林冠佑 | 資訊工程 - Personal Portfolio</title>
     <meta name="description" content="林冠佑 (Lin Kuan-Yu) - 資訊工程學系 | Personal Website & AI / Systems Showcase">
 
     <!-- Google Fonts -->
@@ -35,26 +35,43 @@
         <div class="grid-overlay"></div>
     </div>
 
-    <main class="page-wrapper">
-        <!-- Main Glass Card -->
-        <div class="glass-card" id="mainCard">
-            <!-- Top Controls & Status Bar -->
-            <header class="card-header">
+    <!-- Top Navigation Bar -->
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+            <a href="#hero" class="nav-brand">
+                <span class="brand-code">&lt;/&gt;</span>
+                <span class="brand-name">林冠佑</span>
+                <span class="brand-sub">資訊工程</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#hero" class="nav-item active">關於我</a>
+                <a href="#technologies" class="nav-item">核心技能</a>
+                <a href="#projects" class="nav-item">專案展示</a>
+                <a href="#connect" class="nav-item">聯絡我</a>
+            </div>
+
+            <div class="nav-actions">
                 <div class="status-badge" id="statusBadge">
                     <span class="status-dot"></span>
-                    <span class="status-text">🔥 資訊工程 (CS)</span>
+                    <span class="status-text">🔥 CS Student • Active</span>
                 </div>
 
-                <!-- Fiery Warm Theme Switcher -->
                 <div class="theme-selector" title="切換火焰主題">
-                    <button class="theme-btn active" data-theme-val="ignition" id="themeIgnition">烈焰紅</button>
-                    <button class="theme-btn" data-theme-val="solar" id="themeSolar">日曜金</button>
-                    <button class="theme-btn" data-theme-val="inferno" id="themeInferno">熔岩黑</button>
+                    <button class="theme-btn active" data-theme-val="ignition">烈焰紅</button>
+                    <button class="theme-btn" data-theme-val="solar">日曜金</button>
+                    <button class="theme-btn" data-theme-val="inferno">熔岩黑</button>
                 </div>
-            </header>
+            </div>
+        </nav>
+    </header>
 
-            <!-- Profile Info Section -->
-            <section class="profile-section">
+    <!-- Main Full-Width Container -->
+    <main class="main-container">
+        <!-- Hero Section (2-Column Split) -->
+        <section class="hero-section" id="hero">
+            <!-- Left Column: Profile Card -->
+            <div class="glass-card profile-card">
                 <div class="avatar-wrapper">
                     <div class="avatar-ring"></div>
                     <div class="avatar-content">
@@ -69,13 +86,24 @@
                         <span class="major-icon">🎓</span> 資訊工程學系 (Computer Science)
                     </div>
                 </div>
-            </section>
 
-            <!-- Time & Date Widget -->
-            <section class="clock-widget">
-                <div class="greeting-pill" id="greetingPill">
-                    <span class="greeting-icon" id="greetingIcon">🔥</span>
-                    <span class="greeting-text" id="greetingText">大家好，我是林冠佑！</span>
+                <p class="bio-text">
+                    大家好 我是林冠佑。熱愛寫程式與探索 AI 人工智慧技術，專注於系統開發、演算法與軟體創新。
+                </p>
+
+                <div class="quick-skills-row">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">C</span>
+                    <span class="skill-pill">C++</span>
+                    <span class="skill-pill">AI</span>
+                </div>
+            </div>
+
+            <!-- Right Column: Real-Time Clock & Metadata Card -->
+            <div class="glass-card clock-card">
+                <div class="clock-header-row">
+                    <span class="clock-label">CURRENT LOCAL TIME</span>
+                    <span class="utc-badge" id="utcBadge">UTC+8</span>
                 </div>
 
                 <div class="digital-clock">
@@ -84,37 +112,99 @@
                     <span id="ampm" class="ampm-tag">AM</span>
                 </div>
 
-                <div class="date-timezone-bar">
-                    <div class="date-display" id="dateDisplay">Wednesday, Sep 16, 2026</div>
-                    <div class="timezone-badge" id="timezoneDisplay">Asia/Taipei • UTC+8</div>
-                </div>
-            </section>
+                <div class="date-full" id="dateDisplay">2026年9月16日 星期三</div>
 
-            <!-- Bio & Skills Showcase -->
-            <section class="details-section">
-                <p class="bio-text">
-                    大家好 我是林冠佑。熱愛寫程式與探索 AI 人工智慧技術，專注於系統開發、演算法與軟體創新。
+                <div class="time-meta-grid">
+                    <div class="meta-item">
+                        <span class="meta-title">DAY OF WEEK</span>
+                        <span class="meta-val" id="dayOfWeekVal">週三</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-title">DAY IN YEAR</span>
+                        <span class="meta-val" id="dayInYearVal">Day 259</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-title">TIMEZONE</span>
+                        <span class="meta-val" id="timezoneVal">Taipei</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 01: Core Technologies -->
+        <section class="section-wrapper" id="technologies">
+            <h2 class="section-title">
+                <span class="section-num">01.</span> Core Technologies
+            </h2>
+
+            <div class="tech-grid">
+                <div class="glass-card tech-card">
+                    <div class="tech-icon">🐍</div>
+                    <h3 class="tech-name">Python & AI</h3>
+                    <p class="tech-desc">人工智慧、深度學習與資料科學開發</p>
+                </div>
+
+                <div class="glass-card tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h3 class="tech-name">C & C++</h3>
+                    <p class="tech-desc">高效能系統程式設計、演算法與記憶體管理</p>
+                </div>
+
+                <div class="glass-card tech-card">
+                    <div class="tech-icon">🌐</div>
+                    <h3 class="tech-name">Web & AIoT</h3>
+                    <p class="tech-desc">響應式網頁 UI/UX、物聯網整合與前端邏輯</p>
+                </div>
+
+                <div class="glass-card tech-card">
+                    <div class="tech-icon">💻</div>
+                    <h3 class="tech-name">Computer Science</h3>
+                    <p class="tech-desc">軟體架構、資料結構與演算法設計</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 02: Projects & Repositories -->
+        <section class="section-wrapper" id="projects">
+            <h2 class="section-title">
+                <span class="section-num">02.</span> Projects & Repositories
+            </h2>
+
+            <div class="projects-grid">
+                <div class="glass-card project-card">
+                    <div class="project-header">
+                        <span class="repo-tag">FEATURED REPO</span>
+                    </div>
+                    <h3 class="project-title">0916AIOT</h3>
+                    <p class="project-desc">
+                        林冠佑的個人網頁與 AIoT 成果展示平台，結合即時時鐘監控、火焰極致視覺美學與響應式動態 UI。
+                    </p>
+                    <div class="project-tech-row">
+                        <span class="p-tech">Python</span>
+                        <span class="p-tech">C++</span>
+                        <span class="p-tech">AI</span>
+                        <span class="p-tech">HTML5/CSS3/JS</span>
+                    </div>
+                    <div class="project-link-row">
+                        <a href="https://github.com/oscaryoyo/0916AIOT" target="_blank" rel="noopener"
+                            class="project-btn">
+                            View on GitHub &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Contact & Connect -->
+        <section class="section-wrapper" id="connect">
+            <div class="glass-card connect-card">
+                <h2 class="connect-title">Let's Connect</h2>
+                <p class="connect-desc">
+                    有任何問題或合作意向？歡迎透過 GitHub 或 Email 與我聯繫！
                 </p>
-
-                <div class="skills-header">
-                    <span class="skills-title">🔥 核心技能 (Skills)</span>
-                </div>
-
-                <div class="tags-cloud">
-                    <span class="tag tag-fire">Python</span>
-                    <span class="tag tag-fire">C</span>
-                    <span class="tag tag-fire">C++</span>
-                    <span class="tag tag-fire">AI (人工智慧)</span>
-                    <span class="tag">AIoT</span>
-                    <span class="tag">System Design</span>
-                </div>
-            </section>
-
-            <!-- Social Links / Action Buttons -->
-            <footer class="card-footer">
-                <div class="social-links">
-                    <a href="https://github.com/oscaryoyo/0916AIOT" target="_blank" rel="noopener" class="social-btn"
-                        id="githubLink" title="GitHub 0916AIOT Repository">
+                <div class="connect-actions">
+                    <a href="https://github.com/oscaryoyo/0916AIOT" target="_blank" rel="noopener"
+                        class="connect-btn primary-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path
@@ -122,33 +212,26 @@
                             </path>
                             <path d="M9 18c-4.51 2-5-2-7-2"></path>
                         </svg>
-                        <span>GitHub</span>
+                        <span>GitHub Profile</span>
                     </a>
 
-                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" id="linkedinLink"
-                        title="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                            </path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                        <span>LinkedIn</span>
-                    </a>
-
-                    <a href="mailto:contact@example.com" class="social-btn" id="emailLink" title="Email Me">
+                    <a href="mailto:contact@example.com" class="connect-btn secondary-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                         </svg>
-                        <span>Email</span>
+                        <span>Email Me</span>
                     </a>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer-wrapper">
+        <p>&copy; 2026 林冠佑 (Lin Kuan-Yu). All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

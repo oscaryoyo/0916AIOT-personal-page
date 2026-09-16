@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LIN KUAN-YU (林冠佑) - FIERY WARM THEME & CLOCK LOGIC
+   LIN KUAN-YU (林冠佑) - FULL-WIDTH PORTFOLIO LOGIC
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,17 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
     const ampmEl = document.getElementById('ampm');
-    const greetingIconEl = document.getElementById('greetingIcon');
-    const greetingTextEl = document.getElementById('greetingText');
     const dateDisplayEl = document.getElementById('dateDisplay');
-    const timezoneDisplayEl = document.getElementById('timezoneDisplay');
-    const mainCard = document.getElementById('mainCard');
+    const dayOfWeekVal = document.getElementById('dayOfWeekVal');
+    const dayInYearVal = document.getElementById('dayInYearVal');
+    const timezoneVal = document.getElementById('timezoneVal');
+    const utcBadge = document.getElementById('utcBadge');
 
     // Theme Buttons
     const themeButtons = document.querySelectorAll('.theme-btn');
 
     /* ==========================================================================
-       1. Real-Time Clock & Dynamic Fiery Context
+       1. Real-Time Clock & Metadata Calculations
        ========================================================================== */
     function updateClock() {
         const now = new Date();
@@ -31,56 +31,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayHours = hours % 12 || 12;
         const formattedHours = String(displayHours).padStart(2, '0');
 
-        hoursEl.textContent = formattedHours;
-        minutesEl.textContent = minutes;
-        secondsEl.textContent = seconds;
-        ampmEl.textContent = isPm ? 'PM' : 'AM';
+        if (hoursEl) hoursEl.textContent = formattedHours;
+        if (minutesEl) minutesEl.textContent = minutes;
+        if (secondsEl) secondsEl.textContent = seconds;
+        if (ampmEl) ampmEl.textContent = isPm ? 'PM' : 'AM';
 
-        updateGreeting(hours);
-        updateDateDisplay(now);
+        updateDateMetadata(now);
     }
 
-    function updateGreeting(hour) {
-        let greeting = '大家好，我是林冠佑！';
-        let icon = '🔥';
-
-        if (hour >= 5 && hour < 12) {
-            greeting = '早安！我是林冠佑 ☕';
-            icon = '🌅';
-        } else if (hour >= 12 && hour < 17) {
-            greeting = '午安！我是林冠佑 ☀️';
-            icon = '🔥';
-        } else if (hour >= 17 && hour < 22) {
-            greeting = '晚安！我是林冠佑 🌇';
-            icon = '🌆';
-        } else {
-            greeting = '夜貓模式 🦉 我是林冠佑';
-            icon = '🌌';
-        }
-
-        greetingIconEl.textContent = icon;
-        greetingTextEl.textContent = greeting;
-    }
-
-    function updateDateDisplay(now) {
-        const optionsEn = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-        const dateStrEn = now.toLocaleDateString('en-US', optionsEn);
-
-        const optionsZh = { month: 'long', day: 'numeric', weekday: 'short' };
+    function updateDateMetadata(now) {
+        // Date String (Traditional Chinese + English)
+        const optionsZh = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
         const dateStrZh = now.toLocaleDateString('zh-TW', optionsZh);
+        if (dateDisplayEl) dateDisplayEl.textContent = dateStrZh;
 
-        dateDisplayEl.textContent = `${dateStrEn} • ${dateStrZh}`;
+        // Day of Week
+        const daysZh = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];
+        if (dayOfWeekVal) dayOfWeekVal.textContent = daysZh[now.getDay()];
 
+        // Day in Year Calculation
+        const startOfYear = new Date(now.getFullYear(), 0, 0);
+        const diff = now - startOfYear;
+        const oneDay = 1000 * 60 * 60 * 24;
+        const dayInYear = Math.floor(diff / oneDay);
+        if (dayInYearVal) dayInYearVal.textContent = `Day ${dayInYear}`;
+
+        // Timezone detection
         try {
             const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Taipei';
+            const city = timeZone.split('/')[1] || 'Taipei';
+            if (timezoneVal) timezoneVal.textContent = city;
+
             const offsetMinutes = -now.getTimezoneOffset();
             const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
             const sign = offsetMinutes >= 0 ? '+' : '-';
-            const utcString = `UTC${sign}${offsetHours}`;
-
-            timezoneDisplayEl.textContent = `${timeZone} • ${utcString}`;
+            if (utcBadge) utcBadge.textContent = `UTC${sign}${offsetHours}`;
         } catch (e) {
-            timezoneDisplayEl.textContent = 'Asia/Taipei • UTC+8';
+            if (timezoneVal) timezoneVal.textContent = 'Taipei';
+            if (utcBadge) utcBadge.textContent = 'UTC+8';
         }
     }
 
@@ -88,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateClock, 1000);
 
     /* ==========================================================================
-       2. Dynamic Theme Switcher (Ignition, Solar, Inferno)
+       2. Dynamic Theme Switcher
        ========================================================================== */
     themeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -116,27 +104,25 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) { }
 
     /* ==========================================================================
-       3. Interactive 3D Card Parallax Tilt Effect
+       3. Active Navigation Link Highlighting on Scroll
        ========================================================================== */
-    if (window.matchMedia('(pointer: fine)').matches) {
-        const wrapper = document.querySelector('.page-wrapper');
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-item');
 
-        wrapper.addEventListener('mousemove', (e) => {
-            const rect = mainCard.getBoundingClientRect();
-            const cardCenterX = rect.left + rect.width / 2;
-            const cardCenterY = rect.top + rect.height / 2;
-
-            const mouseX = e.clientX - cardCenterX;
-            const mouseY = e.clientY - cardCenterY;
-
-            const rotateX = (-mouseY / (rect.height / 2)) * 5;
-            const rotateY = (mouseX / (rect.width / 2)) * 5;
-
-            mainCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
         });
 
-        wrapper.addEventListener('mouseleave', () => {
-            mainCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${current}`) {
+                item.classList.add('active');
+            }
         });
-    }
+    });
 });
