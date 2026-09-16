@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="cyber">
+<html lang="zh-TW" data-theme="ignition">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>林冠佑 | Lin Kuan-Yu - Personal Hub</title>
-    <meta name="description"
-        content="Personal website of Lin Kuan-Yu (林冠佑) - Developer & Creative Builder featuring live time and interactive showcase.">
+    <title>林冠佑 | 資訊工程 - Personal Page</title>
+    <meta name="description" content="林冠佑 (Lin Kuan-Yu) - 資訊工程學系 | Personal Website & AI / Systems Showcase">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,11 +19,19 @@
 </head>
 
 <body>
-    <!-- Background Animated Lighting Orbs -->
+    <!-- Background Animated Lighting & Fiery Ember Particles -->
     <div class="background-ambient">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+        <div class="orb orb-flame-1"></div>
+        <div class="orb orb-flame-2"></div>
+        <div class="orb orb-flame-3"></div>
+        <div class="ember-particles">
+            <div class="ember e1"></div>
+            <div class="ember e2"></div>
+            <div class="ember e3"></div>
+            <div class="ember e4"></div>
+            <div class="ember e5"></div>
+            <div class="ember e6"></div>
+        </div>
         <div class="grid-overlay"></div>
     </div>
 
@@ -35,14 +42,14 @@
             <header class="card-header">
                 <div class="status-badge" id="statusBadge">
                     <span class="status-dot"></span>
-                    <span class="status-text">Available for projects</span>
+                    <span class="status-text">🔥 資訊工程 (CS)</span>
                 </div>
 
-                <!-- Theme Switcher -->
-                <div class="theme-selector" title="Switch Theme">
-                    <button class="theme-btn active" data-theme-val="cyber" id="themeCyber">Cyber</button>
-                    <button class="theme-btn" data-theme-val="aurora" id="themeAurora">Aurora</button>
-                    <button class="theme-btn" data-theme-val="midnight" id="themeMidnight">Midnight</button>
+                <!-- Fiery Warm Theme Switcher -->
+                <div class="theme-selector" title="切換火焰主題">
+                    <button class="theme-btn active" data-theme-val="ignition" id="themeIgnition">烈焰紅</button>
+                    <button class="theme-btn" data-theme-val="solar" id="themeSolar">日曜金</button>
+                    <button class="theme-btn" data-theme-val="inferno" id="themeInferno">熔岩黑</button>
                 </div>
             </header>
 
@@ -58,15 +65,17 @@
                 <div class="identity-container">
                     <h1 class="chinese-name">林冠佑</h1>
                     <p class="english-name">Lin Kuan-Yu</p>
-                    <p class="role-tagline">Software Developer & Creative Builder</p>
+                    <div class="major-badge">
+                        <span class="major-icon">🎓</span> 資訊工程學系 (Computer Science)
+                    </div>
                 </div>
             </section>
 
             <!-- Time & Date Widget -->
             <section class="clock-widget">
                 <div class="greeting-pill" id="greetingPill">
-                    <span class="greeting-icon" id="greetingIcon">✨</span>
-                    <span class="greeting-text" id="greetingText">Welcome</span>
+                    <span class="greeting-icon" id="greetingIcon">🔥</span>
+                    <span class="greeting-text" id="greetingText">大家好，我是林冠佑！</span>
                 </div>
 
                 <div class="digital-clock">
@@ -81,19 +90,23 @@
                 </div>
             </section>
 
-            <!-- Bio & Tech Stack Showcase -->
+            <!-- Bio & Skills Showcase -->
             <section class="details-section">
                 <p class="bio-text">
-                    Crafting elegant digital experiences with clean architecture, interactive web technologies, and
-                    human-centered design.
+                    大家好 我是林冠佑。熱愛寫程式與探索 AI 人工智慧技術，專注於系統開發、演算法與軟體創新。
                 </p>
 
+                <div class="skills-header">
+                    <span class="skills-title">🔥 核心技能 (Skills)</span>
+                </div>
+
                 <div class="tags-cloud">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">UI/UX</span>
-                    <span class="tag">Web Apps</span>
-                    <span class="tag">Creative Coding</span>
+                    <span class="tag tag-fire">Python</span>
+                    <span class="tag tag-fire">C</span>
+                    <span class="tag tag-fire">C++</span>
+                    <span class="tag tag-fire">AI (人工智慧)</span>
+                    <span class="tag">AIoT</span>
+                    <span class="tag">System Design</span>
                 </div>
             </section>
 
