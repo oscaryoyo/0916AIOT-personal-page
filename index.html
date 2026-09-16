@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="cyber">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林冠佑 | Lin Kuan-Yu - Personal Hub</title>
+    <meta name="description"
+        content="Personal website of Lin Kuan-Yu (林冠佑) - Developer & Creative Builder featuring live time and interactive showcase.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Animated Lighting Orbs -->
+    <div class="background-ambient">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <main class="page-wrapper">
+        <!-- Main Glass Card -->
+        <div class="glass-card" id="mainCard">
+            <!-- Top Controls & Status Bar -->
+            <header class="card-header">
+                <div class="status-badge" id="statusBadge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Available for projects</span>
+                </div>
+
+                <!-- Theme Switcher -->
+                <div class="theme-selector" title="Switch Theme">
+                    <button class="theme-btn active" data-theme-val="cyber" id="themeCyber">Cyber</button>
+                    <button class="theme-btn" data-theme-val="aurora" id="themeAurora">Aurora</button>
+                    <button class="theme-btn" data-theme-val="midnight" id="themeMidnight">Midnight</button>
+                </div>
+            </header>
+
+            <!-- Profile Info Section -->
+            <section class="profile-section">
+                <div class="avatar-wrapper">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-content">
+                        <span class="avatar-initials">KY</span>
+                    </div>
+                </div>
+
+                <div class="identity-container">
+                    <h1 class="chinese-name">林冠佑</h1>
+                    <p class="english-name">Lin Kuan-Yu</p>
+                    <p class="role-tagline">Software Developer & Creative Builder</p>
+                </div>
+            </section>
+
+            <!-- Time & Date Widget -->
+            <section class="clock-widget">
+                <div class="greeting-pill" id="greetingPill">
+                    <span class="greeting-icon" id="greetingIcon">✨</span>
+                    <span class="greeting-text" id="greetingText">Welcome</span>
+                </div>
+
+                <div class="digital-clock">
+                    <span id="hours">00</span><span class="colon">:</span><span id="minutes">00</span><span
+                        class="colon">:</span><span id="seconds">00</span>
+                    <span id="ampm" class="ampm-tag">AM</span>
+                </div>
+
+                <div class="date-timezone-bar">
+                    <div class="date-display" id="dateDisplay">Wednesday, Sep 16, 2026</div>
+                    <div class="timezone-badge" id="timezoneDisplay">Asia/Taipei • UTC+8</div>
+                </div>
+            </section>
+
+            <!-- Bio & Tech Stack Showcase -->
+            <section class="details-section">
+                <p class="bio-text">
+                    Crafting elegant digital experiences with clean architecture, interactive web technologies, and
+                    human-centered design.
+                </p>
+
+                <div class="tags-cloud">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Web Apps</span>
+                    <span class="tag">Creative Coding</span>
+                </div>
+            </section>
+
+            <!-- Social Links / Action Buttons -->
+            <footer class="card-footer">
+                <div class="social-links">
+                    <a href="https://github.com/oscaryoyo/0916AIOT" target="_blank" rel="noopener" class="social-btn"
+                        id="githubLink" title="GitHub 0916AIOT Repository">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                            </path>
+                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" id="linkedinLink"
+                        title="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a href="mailto:contact@example.com" class="social-btn" id="emailLink" title="Email Me">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
